@@ -176,7 +176,7 @@ function _genericControl(type, port, slot, value) {
         return buf;
     }
 
-function onButtonClick() {
+function connect_AIAndmBot() {
   let filters = [];
 
   let filterService = document.querySelector('#service').value;
@@ -219,7 +219,7 @@ function onButtonClick() {
     this.device = device;
     device.gatt.connect();
     // processColor(1,2,3);
-    // init();
+    classification_init();
   })
   .catch(error => {
     console.log('Argh! ' + error);
@@ -227,27 +227,76 @@ function onButtonClick() {
 }
 
 
-function onButtonClick_color() {
+function mBot_color() {
     processColor(2,5,8);
     // processMotor(255, 255);
 }
 
-function onButtonClick_Go() {
+function mBot_Go() {
     processMotor(-255, 255);
     setTimeout(function(){ processMotor(0, 0); }, 1000);
 }
-function onButtonClick_Stop() {
+function mBot_Stop() {
     processMotor(0, 0);
 }
 
-function onButtonClick_Left() {
+function mBot_Left() {
     processMotor(255, 255);
     setTimeout(function(){ processMotor(0, 0); }, 500);
 }
 
-function onButtonClick_Right() {
+function mBot_Right() {
     processMotor(-255, -255);
     setTimeout(function(){ processMotor(0, 0); }, 500);
+}
+
+
+function connect_mBot() {
+  let filters = [];
+
+  let filterService = document.querySelector('#service').value;
+  if (filterService.startsWith('0x')) {
+    filterService = parseInt(filterService);
+  }
+  if (filterService) {
+    filters.push({services: [filterService]});
+  }
+  filters.push({services: ["0000ffe1-0000-1000-8000-00805f9b34fb"]});
+
+  let filterName = document.querySelector('#name').value;
+  if (filterName) {
+    filters.push({name: filterName});
+  }
+
+  let filterNamePrefix = document.querySelector('#namePrefix').value;
+  if (filterNamePrefix) {
+    filters.push({namePrefix: filterNamePrefix});
+  }
+
+  let options = {};
+  // if (document.querySelector('#allDevices').checked) {
+  //   options.acceptAllDevices = true;
+  //   options.optionalServices = ['0000ffe1-0000-1000-8000-00805f9b34fb'];
+  // } else {
+  //   options.filters = filters;
+  // }
+
+  options.acceptAllDevices = true;
+  options.optionalServices = ['0000ffe1-0000-1000-8000-00805f9b34fb'];
+
+  console.log('Requesting Bluetooth Device...');
+  console.log('with ' + JSON.stringify(options));
+  navigator.bluetooth.requestDevice(options)
+  .then(device => {
+    console.log('> Name:             ' + device.name);
+    console.log('> Id:               ' + device.id);
+    console.log('> Connected:        ' + device.gatt.connected);
+    this.device = device;
+    device.gatt.connect();
+  })
+  .catch(error => {
+    console.log('Argh! ' + error);
+  });
 }
 
 ////////////////////////////////////

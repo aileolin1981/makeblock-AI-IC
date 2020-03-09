@@ -1,7 +1,7 @@
 <div id="titel"  align="center" valign="center">Acer AI Education Toolkit - Makeblock Demo</div>
 
 <div id="menu" align="center" valign="center">
-    <button type="button" onclick="init()">AI Start</button>
+    <button onclick="connect_AIAndmBot()">Connect AI mBot</button>    
 
     <!-- <label for="allDevices">All Devices</label> -->
     <!-- <input id="allDevices" type="checkbox"> -->
@@ -9,11 +9,12 @@
     <input id="name" type="text" size=17 placeholder="Device Name">
     <input id="namePrefix" type="text" size=17 placeholder="Device Name Prefix">
 
-    <button onclick="onButtonClick()">Get Device</button>
-    <button onclick="onButtonClick_Go()">go forward</button>
-    <button onclick="onButtonClick_Stop()">Stop</button>
-    <button onclick="onButtonClick_Left()">Left</button>
-    <button onclick="onButtonClick_Right()">Right</button>
+    <button type="button" onclick="connect_mBot()">Connect mBot</button>
+    <button onclick="mBot_Go()">Go</button>
+    <button onclick="mBot_Stop()">Stop</button>
+    <button onclick="mBot_Left()">Left</button>
+    <button onclick="mBot_Right()">Right</button>
+    <button type="button" onclick="classification_init()">AI Start</button>
 </div>
 <div id="webcam-container" align="center" valign="center"></div>
 <div id="label-container" align="center" valign="center"></div>

@@ -5,7 +5,7 @@ let count_value = 0;
 let one_shoot = false;
 
 // Load the image model and setup the webcam
-async function init() {
+async function classification_init() {
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
 
@@ -52,11 +52,11 @@ async function predict() {
                     
                 //     one_shoot = true;
                 // }
-                onButtonClick_Left();
+                mBot_Left();
             }
             if(i==1 && value >= 0.99)
             {
-                onButtonClick_Right();
+                mBot_Right();
             }
         labelContainer.childNodes[i].innerHTML = classPrediction;
         // count_value++;
