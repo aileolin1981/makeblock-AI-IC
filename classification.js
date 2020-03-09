@@ -1,25 +1,3 @@
-<div>Acer AI Education Toolkit - Makeblock Demo</div>
-<!-- <button type="button" onclick="init()">AI Start</button> -->
-
-<!-- <label for="allDevices">All Devices</label> -->
-<!-- <input id="allDevices" type="checkbox"> -->
-<input id="service" type="text" size=17 list="services" placeholder="Bluetooth Service">
-<input id="name" type="text" size=17 placeholder="Device Name">
-<input id="namePrefix" type="text" size=17 placeholder="Device Name Prefix">
-
-<button onclick="onButtonClick()">Get Device</button>
-<button onclick="onButtonClick_Go()">go forward</button>
-<button onclick="onButtonClick_Stop()">Stop</button>
-<button onclick="onButtonClick_Left()">Left</button>
-<button onclick="onButtonClick_Right()">Right</button>
-
-<div id="webcam-container"></div>
-<div id="label-container"></div>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
-<script type="text/javascript" src="webbluetooth_mBot.js"></script>
-<script type="text/javascript" src="webbluetooth_mBot.js"></script>
-<!-- <script type="text/javascript">
     // More API functions here:
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
@@ -88,4 +66,3 @@
             // count_value++;
         }
     }
-</script> -->
