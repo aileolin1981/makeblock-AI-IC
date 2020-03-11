@@ -236,6 +236,12 @@ function mBot_Go() {
     processMotor(-255, 255);
     setTimeout(function(){ processMotor(0, 0); }, 1000);
 }
+
+function mBot_Back() {
+    processMotor(255, -255);
+    setTimeout(function(){ processMotor(0, 0); }, 1000);
+}
+
 function mBot_Stop() {
     processMotor(0, 0);
 }

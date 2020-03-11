@@ -1,5 +1,6 @@
 // const URL = "./my_model/";
-const URL = "./classification_model_20200311/";
+// const URL = "./classification_model_20200311/";
+const URL = "./classification_model_20200311_2/";
 
 let model, webcam, labelContainer, maxPredictions;
 let count_value = 0;
@@ -78,6 +79,10 @@ async function predict() {
             else if(prediction[i].className=="OTHER" && value >= 0.99)
             {
                 console.log("OTHER");
+            }
+            else if(prediction[i].className=="BACK" && value >= 0.99)
+            {
+                mBot_Back();
             }
 
         labelContainer.childNodes[i].innerHTML = classPrediction;
