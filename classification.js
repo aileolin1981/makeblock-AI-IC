@@ -1,4 +1,5 @@
-const URL = "./my_model/";
+// const URL = "./my_model/";
+const URL = "./classification_model_20200311/";
 
 let model, webcam, labelContainer, maxPredictions;
 let count_value = 0;
@@ -18,7 +19,7 @@ async function classification_init() {
 
     // Convenience function to setup a webcam
     const flip = true; // whether to flip the webcam
-    webcam = new tmImage.Webcam(800, 600, flip); // width, height, flip
+    webcam = new tmImage.Webcam(500, 500, flip); // width, height, flip
     await webcam.setup(); // request access to the webcam
     await webcam.play();
     window.requestAnimationFrame(loop);
@@ -45,19 +46,40 @@ async function predict() {
         const classPrediction =
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             let value = prediction[i].probability.toFixed(2);
-            if(i==0 && value >= 0.99)
-            {
-                // if(!one_shoot)
-                // {
+            // if(i==0 && value >= 0.99)
+            // {
+            //     // if(!one_shoot)
+            //     // {
                     
-                //     one_shoot = true;
-                // }
-                mBot_Left();
-            }
-            if(i==1 && value >= 0.99)
+            //     //     one_shoot = true;
+            //     // }
+            //     mBot_Left();
+            // }
+            // if(i==1 && value >= 0.99)
+            // {
+            //     mBot_Right();
+            // }
+            if(prediction[i].className=="Right" && value >= 0.99)
             {
                 mBot_Right();
             }
+            else if(prediction[i].className=="Left" && value >= 0.99)
+            {
+                mBot_Left();
+            }
+            else if(prediction[i].className=="GO" && value >= 0.99)
+            {
+                mBot_Go();
+            }
+            else if(prediction[i].className=="STOP" && value >= 0.99)
+            {
+                mBot_Stop();
+            }
+            else if(prediction[i].className=="OTHER" && value >= 0.99)
+            {
+                console.log("OTHER");
+            }
+
         labelContainer.childNodes[i].innerHTML = classPrediction;
         // count_value++;
     }

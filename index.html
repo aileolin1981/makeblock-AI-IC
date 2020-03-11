@@ -1,24 +1,26 @@
-<div id="titel"  align="center" valign="center">Acer AI Education Toolkit - Makeblock Demo</div>
+<html>
+    <body>
+        <div id="titel"  align="center" valign="center">Acer AI Education Toolkit - Makeblock Demo</div>
+        <div id="menu" align="center" valign="center">
+            <button onclick="connect_AIAndmBot()">Connect AI mBot</button>    
+            <input id="service" type="text" size=17 list="services" placeholder="Bluetooth Service">
+            <input id="name" type="text" size=17 placeholder="Device Name">
+            <input id="namePrefix" type="text" size=17 placeholder="Device Name Prefix">
 
-<div id="menu" align="center" valign="center">
-    <button onclick="connect_AIAndmBot()">Connect AI mBot</button>    
-
-    <!-- <label for="allDevices">All Devices</label> -->
-    <!-- <input id="allDevices" type="checkbox"> -->
-    <input id="service" type="text" size=17 list="services" placeholder="Bluetooth Service">
-    <input id="name" type="text" size=17 placeholder="Device Name">
-    <input id="namePrefix" type="text" size=17 placeholder="Device Name Prefix">
-
-    <button type="button" onclick="connect_mBot()">Connect mBot</button>
-    <button onclick="mBot_Go()">Go</button>
-    <button onclick="mBot_Stop()">Stop</button>
-    <button onclick="mBot_Left()">Left</button>
-    <button onclick="mBot_Right()">Right</button>
-    <button type="button" onclick="classification_init()">AI Start</button>
-</div>
-<div id="webcam-container" align="center" valign="center"></div>
-<div id="label-container" align="center" valign="center"></div>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
-<script type="text/javascript" src="webbluetooth_mBot.js"></script>
-<script type="text/javascript" src="classification.js"></script>
+            <button type="button" onclick="connect_mBot()">Connect mBot</button>
+            <button onclick="mBot_Go()">Go</button>
+            <button onclick="mBot_Stop()">Stop</button>
+            <button onclick="mBot_Left()">Left</button>
+            <button onclick="mBot_Right()">Right</button>
+            <button type="button" onclick="classification_init()">AI Start</button>
+        </div>
+        <div id="Resoult">
+            <div id="webcam-container" align="center" valign="center" style="color:#FFFFFF; background-color:#000000"></div>
+            <div id="label-container" align="center" valign="center"></div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+        <script type="text/javascript" src="webbluetooth_mBot.js"></script>
+        <script type="text/javascript" src="classification.js"></script>
+    </body>
+</html>
